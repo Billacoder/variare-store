@@ -39,16 +39,6 @@ export default function ImageBanner() {
 						Handcrafted pieces for every style.
 					</p>
 				</div>
-
-				{/* Right */}
-				<div>
-					<Link
-						href="/collections"
-						className="border border-white/80 px-6 py-3 text-xs uppercase tracking-[0.35em] text-white transition-all duration-300 hover:bg-white hover:text-black"
-					>
-						Browse Collections
-					</Link>
-				</div>
 			</div>
 		</section>
 	);

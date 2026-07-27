@@ -118,7 +118,7 @@ export default function BestSellers() {
 									</h3>
 
 									<p className="text-sm text-neutral-500">
-										₹{product.price.toLocaleString("en-IN")}
+										₹{product.price.toLocaleString("en-IN")}.00
 									</p>
 
 									<div className="mt-3 flex items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">

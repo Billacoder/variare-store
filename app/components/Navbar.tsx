@@ -45,33 +45,44 @@ export default function Navbar() {
 						: "bg-transparent text-white"
 			}`}
 		>
-			<div className="mx-auto flex h-14 md:h-20 max-w-7xl items-center justify-between px-6 md:px-8">
+			<div className="mx-auto flex h-18 md:h-20 max-w-7xl items-center justify-between px-6 md:px-8">
 				{/* Logo */}
 				<Link
 					href="/"
-					className="text-sm md:text-2xl font-light tracking-[0.18em] transition-opacity duration-300 hover:opacity-70"
+					className="text-xl md:text-2xl font-light tracking-[0.18em] transition-opacity duration-300 hover:opacity-70"
 				>
 					Variare
 				</Link>
 
 				{/* Mobile Actions */}
 				<div className="flex items-center gap-4 md:hidden">
+						<Link
+							href="/cart"
+							className="transition-colors duration-500 hover:opacity-70"
+						>
+							<Handbag
+								className="h-[18px] w-[18px] transition-transform duration-300 hover:scale-110"
+								strokeWidth={1.7}
+							/>
+						</Link>
 
-					<Link href="/cart">
-						<Handbag
-							className="h-[18px] w-[18px] transition-all duration-300 hover:scale-110 hover:opacity-70"
-							strokeWidth={1.7}
-						/>
-					</Link>
-					
-					<button onClick={() => setMenuOpen(!menuOpen)}>
-						{menuOpen ? (
-							<X className="h-5 w-5" strokeWidth={1.7} />
-						) : (
-							<Menu className="h-5 w-5" strokeWidth={1.7} />
-						)}
-					</button>
-				</div>
+						<button
+							onClick={() => setMenuOpen(!menuOpen)}
+							className="transition-colors duration-500"
+						>
+							{menuOpen ? (
+								<X
+									className="h-5 w-5 transition-transform duration-300 hover:scale-110"
+									strokeWidth={1.7}
+								/>
+							) : (
+								<Menu
+									className="h-5 w-5 transition-transform duration-300 hover:scale-110"
+									strokeWidth={1.7}
+								/>
+							)}
+						</button>
+					</div>
 
 				{/* Navigation */}
 				<div className="hidden md:flex items-center gap-10">

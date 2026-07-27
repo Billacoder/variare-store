@@ -110,7 +110,7 @@ export default function ShopAll() {
 									</h3>
 
 									<p className="text-xs md:text-sm text-neutral-500">
-										₹{product.price.toLocaleString("en-IN")}
+										₹{product.price.toLocaleString("en-IN")}.00
 									</p>
 
 									<div className="hidden md:flex mt-3 items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
