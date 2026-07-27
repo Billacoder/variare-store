@@ -12,7 +12,7 @@ export default function CustomCTA() {
 				{/* Image */}
 				<div className="relative h-[500px] w-full overflow-hidden rounded-3xl md:w-1/2">
 					<Image
-						src="/custom-crochet.jpg"
+						src="/chrochet products/tops/Offset cardigan by Juuulsmakes.jpg"
 						alt="Custom Crochet"
 						fill
 						className="object-cover transition duration-700 hover:scale-105"
