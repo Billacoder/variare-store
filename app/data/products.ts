@@ -99,6 +99,56 @@ export const products = [
 		price: 1020,
 		bestSeller: true,
 	},
+	{
+		id: 10,
+		title: "Baby Flower Dress",
+		slug: "baby-flower-dress",
+		collection: "little-knits",
+		image:
+			"/chrochet products/baby/CROCHET PATTERN Baby Flower Dress, Sunflower Granny Square, Baby Sundress, 0-24 Months, PDF Download - Etsy.jpg",
+		price: 1020,
+		bestSeller: true,
+	},
+	{
+		id: 10,
+		title: "Baby Flower Dress",
+		slug: "baby-flower-dress",
+		collection: "little-knits",
+		image:
+			"/chrochet products/baby/CROCHET PATTERN Baby Flower Dress, Sunflower Granny Square, Baby Sundress, 0-24 Months, PDF Download - Etsy.jpg",
+		price: 1020,
+		bestSeller: true,
+	},
+	{
+		id: 10,
+		title: "Baby Flower Dress",
+		slug: "baby-flower-dress",
+		collection: "little-knits",
+		image:
+			"/chrochet products/baby/CROCHET PATTERN Baby Flower Dress, Sunflower Granny Square, Baby Sundress, 0-24 Months, PDF Download - Etsy.jpg",
+		price: 1020,
+		bestSeller: true,
+	},
+	{
+		id: 10,
+		title: "Baby Flower Dress",
+		slug: "baby-flower-dress",
+		collection: "little-knits",
+		image:
+			"/chrochet products/baby/CROCHET PATTERN Baby Flower Dress, Sunflower Granny Square, Baby Sundress, 0-24 Months, PDF Download - Etsy.jpg",
+		price: 1020,
+		bestSeller: true,
+	},
+	{
+		id: 10,
+		title: "Baby Flower Dress",
+		slug: "baby-flower-dress",
+		collection: "little-knits",
+		image:
+			"/chrochet products/baby/CROCHET PATTERN Baby Flower Dress, Sunflower Granny Square, Baby Sundress, 0-24 Months, PDF Download - Etsy.jpg",
+		price: 1020,
+		bestSeller: true,
+	},
 ];
 
 export type Product = (typeof products)[number];

@@ -3,82 +3,127 @@ import Link from "next/link";
 export default function Footer() {
 	return (
 		<footer className="bg-neutral-100 text-black">
-			<div className="mx-auto max-w-7xl px-8 py-16">
+			<div className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
 				{/* Newsletter */}
-				<div className="border-b border-neutral-300 pb-16">
-					<h2 className="text-3xl">Join Our List</h2>
+				<div className="border-b border-neutral-300 pb-12 md:pb-16">
+					<h2 className="text-3xl font-light md:text-4xl">
+						Join Our List
+					</h2>
 
-					<p className="mt-2 text-sm uppercase tracking-wider text-neutral-500">
+					<p className="mt-3 text-[11px] uppercase tracking-[0.35em] text-neutral-500 md:text-sm md:tracking-wider">
 						Text With Us
 					</p>
 
-					<div className="mt-8 flex flex-col gap-4 md:flex-row">
+					<div className="mt-8 flex flex-col gap-3 md:flex-row">
 						<input
 							type="email"
 							placeholder="Email Address"
-							className="flex-1 border-b border-black bg-transparent py-3 outline-none placeholder:text-neutral-500"
+							className="w-full border-b border-black bg-transparent py-3 text-sm outline-none placeholder:text-neutral-500 md:flex-1"
 						/>
 
-						<button className="border border-black px-8 py-3 text-sm uppercase transition hover:bg-black hover:text-white">
+						<button className="border border-black px-8 py-3 text-[11px] uppercase tracking-[0.25em] transition-all duration-300 hover:bg-black hover:text-white md:text-sm md:tracking-wider">
 							Submit
 						</button>
 					</div>
 
-					<p className="mt-4 max-w-xl text-xs text-neutral-500">
-						By signing up you agree to the Terms & Conditions, Privacy Policy,
+					<p className="mt-4 max-w-xl text-xs leading-6 text-neutral-500">
+						By signing up you agree to our Terms & Conditions, Privacy Policy,
 						and Cookie Policy.
 					</p>
 				</div>
 
-				{/* Footer Links */}
-				<div className="mt-16 grid grid-cols-2 gap-12 md:grid-cols-4">
+				{/* Links */}
+				<div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
 					{/* Learn */}
 					<div>
-						<h3 className="mb-5 text-sm uppercase tracking-wider">Learn</h3>
+						<h3 className="mb-5 text-[11px] uppercase tracking-[0.35em] text-neutral-900">
+							Learn
+						</h3>
 
-						<div className="flex flex-col gap-3 text-neutral-500">
-							<Link href="/about">About</Link>
-							{/* <Link href="/faq">FAQs</Link> */}
-							{/* <Link href="/loyalty">The Variare Loyalty Program</Link> */}
+						<div className="flex flex-col gap-3 text-sm text-neutral-500">
+							<Link
+								href="/about"
+								className="transition-colors duration-300 hover:text-black"
+							>
+								About
+							</Link>
 						</div>
 					</div>
 
 					{/* Discover */}
 					<div>
-						<h3 className="mb-5 text-sm uppercase tracking-wider">Discover</h3>
+						<h3 className="mb-5 text-[11px] uppercase tracking-[0.35em] text-neutral-900">
+							Discover
+						</h3>
 
-						<div className="flex flex-col gap-3 text-neutral-500">
-							{/* <Link href="/locations">Locations</Link> */}
-							<Link href="/contact">Contact Us</Link>
-							<Link href="/support">Support</Link>
-							{/* <Link href="/app">Variare App</Link> */}
+						<div className="flex flex-col gap-3 text-sm text-neutral-500">
+							<Link
+								href="/contact"
+								className="transition-colors duration-300 hover:text-black"
+							>
+								Contact Us
+							</Link>
+
+							<Link
+								href="/support"
+								className="transition-colors duration-300 hover:text-black"
+							>
+								Support
+							</Link>
 						</div>
 					</div>
 
 					{/* Policies */}
 					<div>
-						<h3 className="mb-5 text-sm uppercase tracking-wider">Policies</h3>
+						<h3 className="mb-5 text-[11px] uppercase tracking-[0.35em] text-neutral-900">
+							Policies
+						</h3>
 
-						<div className="flex flex-col gap-3 text-neutral-500">
-							{/* <Link href="/cookie-policy">Cookie Policy</Link> */}
-							<Link href="/privacy-policy">Privacy Policy</Link>
-							<Link href="/terms">Terms & Conditions</Link>
-							{/* <Link href="/accessibility">Accessibility</Link> */}
+						<div className="flex flex-col gap-3 text-sm text-neutral-500">
+							<Link
+								href="/privacy-policy"
+								className="transition-colors duration-300 hover:text-black"
+							>
+								Privacy Policy
+							</Link>
+
+							<Link
+								href="/terms"
+								className="transition-colors duration-300 hover:text-black"
+							>
+								Terms & Conditions
+							</Link>
 						</div>
 					</div>
 
 					{/* Follow */}
 					<div>
-						<h3 className="mb-5 text-sm uppercase tracking-wider">Follow Us</h3>
+						<h3 className="mb-5 text-[11px] uppercase tracking-[0.35em] text-neutral-900">
+							Follow Us
+						</h3>
 
-						<div className="flex flex-col gap-3 text-neutral-500">
-							<Link href="https://instagram.com/xbllprx" target="_blank">
+						<div className="flex flex-col gap-3 text-sm text-neutral-500">
+							<Link
+								href="https://instagram.com/xbllprx"
+								target="_blank"
+								className="transition-colors duration-300 hover:text-black"
+							>
 								Instagram
 							</Link>
-							<Link href="https://facebook.com/" target="_blank">
+
+							<Link
+								href="https://facebook.com/"
+								target="_blank"
+								className="transition-colors duration-300 hover:text-black"
+							>
 								Facebook
 							</Link>
-							<Link href="https://youtube.com/" target="_blank">
+
+							<Link
+								href="https://youtube.com/"
+								target="_blank"
+								className="transition-colors duration-300 hover:text-black"
+							>
 								YouTube
 							</Link>
 						</div>
@@ -86,7 +131,7 @@ export default function Footer() {
 				</div>
 
 				{/* Bottom */}
-				<div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-neutral-300 pt-8 text-sm text-neutral-500 md:flex-row">
+				<div className="mt-12 flex flex-col gap-2 border-t border-neutral-300 pt-8 text-center text-xs text-neutral-500 md:mt-16 md:flex-row md:items-center md:justify-between md:text-sm">
 					<p>© {new Date().getFullYear()} Variare. All rights reserved.</p>
 
 					<p>Handcrafted with care.</p>
