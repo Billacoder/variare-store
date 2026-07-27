@@ -15,7 +15,7 @@ export default function ImageBanner() {
 				className="absolute inset-0 h-full w-full object-cover"
 			>
 				<source
-					src="/hero-video.mp4"
+					src="/hero.mp4"
 					type="video/mp4"
 				/>
 			</video>
