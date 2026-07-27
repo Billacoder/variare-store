@@ -19,6 +19,8 @@ export default function Navbar() {
 		"/wishlist",
 		"/account",
 		"/best-sellers",
+		"/custom",
+		"/checkout"
 	];
 
 	const darkNavbar =
