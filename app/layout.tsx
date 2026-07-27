@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Intro from "./components/Intro";
+import PageTransition from "./components/PageTransition";
 
 import { CartProvider } from "@/app/context/CartContext";
 import { WishlistProvider } from "@/app/context/WishlistContext";
@@ -37,9 +39,15 @@ export default function RootLayout({
 			<body className="flex min-h-screen flex-col">
 				<WishlistProvider>
 					<CartProvider>
+						{/* Intro Overlay */}
+						<Intro />
+
+						{/* Website */}
 						<Navbar />
 
-						<main className="flex-1">{children}</main>
+						<PageTransition>
+							{children}
+						</PageTransition>
 
 						<Footer />
 					</CartProvider>
