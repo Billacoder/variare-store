@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Heart, Bookmark, CircleUserRound, Menu, X } from "lucide-react";
+import { Heart, Handbag, CircleUserRound, Menu, X } from "lucide-react";
 
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
@@ -56,11 +56,19 @@ export default function Navbar() {
 
 				{/* Mobile Actions */}
 				<div className="flex items-center gap-4 md:hidden">
+
+					<Link href="/cart">
+						<Handbag
+							className="h-[18px] w-[18px] transition-all duration-300 hover:scale-110 hover:opacity-70"
+							strokeWidth={1.7}
+						/>
+					</Link>
+					
 					<button onClick={() => setMenuOpen(!menuOpen)}>
 						{menuOpen ? (
-							<X className="h-6 w-6" strokeWidth={1.7} />
+							<X className="h-5 w-5" strokeWidth={1.7} />
 						) : (
-							<Menu className="h-6 w-6" strokeWidth={1.7} />
+							<Menu className="h-5 w-5" strokeWidth={1.7} />
 						)}
 					</button>
 				</div>
@@ -94,8 +102,8 @@ export default function Navbar() {
 					</Link>
 
 					<Link href="/cart">
-						<Bookmark
-							className="h-[18px] w-[18px] transition-all duration-300 hover:scale-110 hover:opacity-70"
+						<Handbag
+							className="h-[18px] w-[17px] transition-all duration-300 hover:scale-110 hover:opacity-70"
 							strokeWidth={1.7}
 						/>
 					</Link>
