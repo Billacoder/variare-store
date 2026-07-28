@@ -10,16 +10,8 @@ type Props = {
 
 const options = {
 	wearables: ["XS", "S", "M", "L", "XL"],
-
 	beanies: ["Child", "Teen", "Adult"],
-
-	blankets: [
-		"Baby Blanket",
-		"Throw Blanket",
-		"Twin",
-		"Queen",
-	],
-
+	blankets: ["Baby Blanket", "Throw Blanket", "Twin", "Queen"],
 	"little-knits": [
 		"Newborn",
 		"0–3 Months",
@@ -33,9 +25,8 @@ const options = {
 export default function ProductConfigurator({ product }: Props) {
 	const [size, setSize] = useState("");
 
-	const collection = product.collection as keyof typeof options;
-
-	const sizes = options[collection];
+	const sizes =
+		options[product.collection as keyof typeof options] ?? undefined;
 
 	return (
 		<div className="mt-10 w-full">
