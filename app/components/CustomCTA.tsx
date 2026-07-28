@@ -2,73 +2,85 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function CustomCTA() {
 	return (
 		<section className="bg-stone-50 py-24 md:py-8">
-			<div className="mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 md:flex-row md:px-10">
-
+			<div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
 				{/* Image */}
-				<div className="relative h-[500px] w-full overflow-hidden rounded-3xl md:w-1/2">
+				<div className="group relative overflow-hidden bg-neutral-100">
 					<Image
 						src="/chrochet products/tops/Offset cardigan by Juuulsmakes.jpg"
 						alt="Custom Crochet"
-						fill
-						className="object-cover transition duration-700 hover:scale-105"
+						width={900}
+						height={1200}
+						className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105"
 					/>
 				</div>
 
 				{/* Content */}
-				<div className="flex w-full flex-col md:w-1/2">
-
-					<p className="mb-3 uppercase tracking-[0.35em] text-neutral-500">
+				<div>
+					<p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-neutral-400">
 						Custom Orders
 					</p>
 
-					<h2 className="font-serif text-4xl leading-tight md:text-6xl">
+					<h2 className="text-4xl font-medium leading-tight text-neutral-900 md:text-6xl">
 						Create Something
 						<br />
-						Truly Yours
+						Just for You
 					</h2>
 
-					<p className="mt-8 max-w-lg text-lg leading-8 text-neutral-600">
-						Every crochet piece is handmade to order.
-						Choose your colours, size and details—or upload
-						your inspiration and we'll bring it to life.
+					<p className="mt-8 max-w-xl text-lg leading-8 text-neutral-600">
+						Every crochet piece is handmade to order. Personalise
+						colours, sizing and details—or simply send us your
+						inspiration and we'll craft a piece that feels uniquely
+						yours.
 					</p>
 
-					<div className="mt-10 space-y-4 text-lg text-neutral-700">
-
-						<div className="flex items-center gap-3">
+					<div className="mt-10 space-y-5">
+						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							Unlimited colour choices
+							<span className="text-neutral-700">
+								Choose any colour palette
+							</span>
 						</div>
 
-						<div className="flex items-center gap-3">
+						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							Upload inspiration photos
+							<span className="text-neutral-700">
+								Send inspiration photos or sketches
+							</span>
 						</div>
 
-						<div className="flex items-center gap-3">
+						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							Made by hand with premium yarn
+							<span className="text-neutral-700">
+								Handcrafted using premium yarns
+							</span>
 						</div>
 
+						<div className="flex items-center gap-4">
+							<div className="h-2 w-2 rounded-full bg-black" />
+							<span className="text-neutral-700">
+								Made exclusively for you
+							</span>
+						</div>
 					</div>
 
-					<Link
-						href="/custom"
-						className="group mt-12 flex w-fit items-center gap-3 rounded-full bg-black px-8 py-4 text-white transition hover:bg-neutral-800"
-					>
-						Start Customising
+					<div className="mt-12">
+						<Link
+							href="/custom"
+							className="group inline-flex items-center gap-3 border border-neutral-900 px-8 py-4 text-[11px] uppercase tracking-[0.3em] transition-all duration-300 hover:bg-neutral-900 hover:text-white"
+						>
+							Start Customising
 
-						<ArrowRight
-							size={18}
-							className="transition-transform duration-300 group-hover:translate-x-1"
-						/>
-					</Link>
-
+							<ArrowUpRight
+								size={16}
+								className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+							/>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</section>

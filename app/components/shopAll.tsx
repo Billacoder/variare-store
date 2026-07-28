@@ -51,21 +51,21 @@ export default function ShopAll() {
 
 				{/* Carousel */}
 				<div ref={emblaRef} className="overflow-hidden px-5 md:px-3">
-					<div className="flex gap-4 md:gap-3">
+					<div className="flex gap-4 md:gap-2">
 						{featuredProducts.map((product) => (
 							<Link
 								key={product.id}
 								href={`/product/${product.slug}`}
-								className="group flex-[0_0_68%] sm:flex-[0_0_48%] lg:flex-[0_0_250px]"
+								className="group flex-[0_0_78%] sm:flex-[0_0_46%] lg:flex-[0_0_250px]"
 							>
 								{/* Image */}
-								<div className="relative overflow-hidden rounded-sm bg-neutral-100">
+								<div className="relative overflow-hidden bg-neutral-100">
 									<Image
 										src={product.image}
 										alt={product.title}
 										width={400}
-										height={550}
-										className="aspect-[3/4] w-full object-cover transition-transform duration-700 md:aspect-auto md:h-[250px] md:group-hover:scale-[1.05]"
+										height={650}
+										className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105"
 									/>
 
 									{/* Wishlist */}

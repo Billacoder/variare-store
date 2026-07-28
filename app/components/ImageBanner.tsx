@@ -24,7 +24,7 @@ export default function ImageBanner() {
 			<div className="absolute inset-0 z-10 flex items-center justify-center px-6">
 				<div className="max-w-3xl text-center text-white">
 					<p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-white/70 md:text-xs md:tracking-[0.55em]">
-						Collections
+						Shop
 					</p>
 
 					<h2 className="text-4xl font-light leading-tight tracking-tight md:text-6xl">

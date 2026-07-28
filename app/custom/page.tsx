@@ -1,14 +1,55 @@
 "use client";
 
+"use client";
+
 import { useState } from "react";
+import Image from "next/image";
+import {
+  Check,
+  ChevronRight,
+  Upload,
+  Palette,
+  Ruler,
+  Sparkles,
+} from "lucide-react";
 
 const products = [
-  "Plushie",
-  "Bag",
-  "Blanket",
-  "Beanie",
-  "Wearable",
-  "Keychain",
+  {
+    name: "Plushie",
+    icon: "🧸",
+    description: "Cute handmade companions",
+    price: 900,
+  },
+  {
+    name: "Bag",
+    icon: "👜",
+    description: "Everyday crochet bags",
+    price: 1200,
+  },
+  {
+    name: "Blanket",
+    icon: "🛏️",
+    description: "Soft handmade blankets",
+    price: 2500,
+  },
+  {
+    name: "Beanie",
+    icon: "🧢",
+    description: "Warm custom beanies",
+    price: 800,
+  },
+  {
+    name: "Wearable",
+    icon: "🧶",
+    description: "Cardigans, tops & sweaters",
+    price: 2200,
+  },
+  {
+    name: "Keychain",
+    icon: "🔑",
+    description: "Cute mini accessories",
+    price: 450,
+  },
 ];
 
 const popularColours = [
@@ -21,33 +62,107 @@ const popularColours = [
   { name: "Blue", hex: "#6FA8DC" },
   { name: "Sage", hex: "#A8BBA3" },
   { name: "Lavender", hex: "#C7B5E8" },
+  { name: "Olive", hex: "#78866B" },
+  { name: "Mustard", hex: "#D9A441" },
+  { name: "Terracotta", hex: "#C96A4B" },
+];
+
+const steps = [
+  "Product",
+  "Colour",
+  "Measurements",
+  "Inspiration",
+  "Contact",
+  "Review",
 ];
 
 export default function CustomPage() {
   const [selectedProduct, setSelectedProduct] = useState("");
-  const [selectedColour, setSelectedColour] = useState("#F5F1E8");
+const [selectedColour, setSelectedColour] = useState("#F5F1E8");
 
-  const [measurements, setMeasurements] = useState({
-    bust: "",
-    waist: "",
-    hips: "",
-    sleeve: "",
-    length: "",
-    head: "",
-    fit: "",
-    blanketWidth: "",
-    blanketLength: "",
-    strap: "",
-    plushieHeight: "",
-    accessories: "",
-  });
+const [timeline, setTimeline] = useState("I'm flexible");
+const [uploadedImages, setUploadedImages] = useState<File[]>([]);
+const [notes, setNotes] = useState("");
+const [budget, setBudget] = useState("");
+const [quantity, setQuantity] = useState(1);
 
-  const handleMeasurement = (e) => {
-    setMeasurements({
-      ...measurements,
-      [e.target.name]: e.target.value,
-    });
-  };
+const [measurements, setMeasurements] = useState({
+  bust: "",
+  waist: "",
+  hips: "",
+  sleeve: "",
+  length: "",
+
+  head: "",
+  fit: "",
+
+  blanketWidth: "",
+  blanketLength: "",
+
+  strap: "",
+
+  plushieHeight: "",
+  accessories: "",
+});
+
+
+ const handleMeasurement = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+
+  setMeasurements((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+
+
+const selectedProductData = products.find(
+  (product) => product.name === selectedProduct
+);
+
+const estimatedPrice =
+  (selectedProductData?.price ?? 0) * quantity;
+
+
+const completedSteps = [
+  selectedProduct,
+  selectedColour,
+  uploadedImages.length > 0,
+  notes,
+].filter(Boolean).length;
+
+const progress = Math.round(
+  (completedSteps / 4) * 100
+);
+
+const hasMeasurements = Object.values(measurements).some(
+  (value) => value !== ""
+);
+
+
+const orderReady =
+  selectedProduct &&
+  uploadedImages.length > 0 &&
+  notes;
+
+
+  const charactersRemaining = 1000 - notes.length;
+
+
+  const increaseQuantity = () => {
+  setQuantity((prev) => prev + 1);
+};
+
+const decreaseQuantity = () => {
+  if (quantity > 1) {
+    setQuantity((prev) => prev - 1);
+  }
+};
+
+
+
 
   return (
     <main className="min-h-screen bg-stone-50 pt-32 pb-24">
@@ -77,100 +192,109 @@ export default function CustomPage() {
           {/* Product */}
 
           <section>
+  <div className="flex items-center justify-between">
+    <div>
+      <p className="text-[11px] uppercase tracking-[0.35em] text-neutral-400">
+        Step 1
+      </p>
 
-            <h2 className="mb-6 text-2xl font-semibold">
-              1. Choose a Product
-            </h2>
+      <h2 className="mt-2 text-3xl font-semibold">
+        Choose Your Product
+      </h2>
+    </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <Sparkles
+      size={26}
+      className="text-neutral-400"
+    />
+  </div>
 
-              {products.map((product) => (
-                <button
-                  key={product}
-                  onClick={() => setSelectedProduct(product)}
-                  className={`rounded-2xl border p-6 transition ${
-                    selectedProduct === product
-                      ? "border-black bg-black text-white"
-                      : "border-neutral-200 hover:border-black"
-                  }`}
-                >
-                  {product}
-                </button>
-              ))}
+  <p className="mt-5 max-w-2xl text-neutral-500">
+    Every piece is handcrafted from scratch. Select the item you'd like us
+    to create for you.
+  </p>
 
+  <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+
+    {products.map((product) => {
+      const active = selectedProduct === product.name;
+
+      return (
+        <button
+          key={product.name}
+          onClick={() => setSelectedProduct(product.name)}
+          className={`group relative overflow-hidden rounded-3xl border bg-white p-7 text-left transition-all duration-500
+
+          ${
+            active
+              ? "border-black shadow-xl ring-1 ring-black"
+              : "border-neutral-200 hover:-translate-y-1 hover:border-black hover:shadow-xl"
+          }`}
+        >
+          {/* Selected Badge */}
+
+          {active && (
+            <div className="absolute right-5 top-5">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white">
+                <Check size={16} />
+              </div>
             </div>
+          )}
 
-          </section>
+          {/* Icon */}
 
-          {/* Colour */}
+          <div className="text-5xl">
+            {product.icon}
+          </div>
 
-          <section>
+          {/* Title */}
 
-            <h2 className="mb-6 text-2xl font-semibold">
-              2. Choose a Colour
-            </h2>
+          <h3 className="mt-8 text-xl font-semibold">
+            {product.name}
+          </h3>
 
-            <p className="mb-6 text-neutral-500">
-              Select one of our popular yarn colours or choose any colour you'd
-              like.
+          {/* Description */}
+
+          <p className="mt-3 leading-7 text-neutral-500">
+            {product.description}
+          </p>
+
+          {/* Price */}
+
+          <div className="mt-8">
+            <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">
+              Starting From
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <p className="mt-2 text-2xl font-semibold">
+              ₹{product.price.toLocaleString()}
+            </p>
+          </div>
 
-              {popularColours.map((colour) => (
-                <button
-                  key={colour.name}
-                  onClick={() => setSelectedColour(colour.hex)}
-                  className={`flex items-center gap-3 rounded-full border px-4 py-2 transition ${
-                    selectedColour === colour.hex
-                      ? "border-black"
-                      : "border-neutral-300"
-                  }`}
-                >
-                  <span
-                    className="h-6 w-6 rounded-full border"
-                    style={{
-                      backgroundColor: colour.hex,
-                    }}
-                  />
+          {/* Bottom */}
 
-                  {colour.name}
-                </button>
-              ))}
+          <div className="mt-10 flex items-center justify-between border-t pt-6">
 
-            </div>
+            <span className="text-sm font-medium">
+              {active ? "Selected" : "Select"}
+            </span>
 
-            <div className="mt-10 flex items-center gap-6">
+            <ChevronRight
+              size={18}
+              className={`transition-transform duration-300 ${
+                active
+                  ? "translate-x-1"
+                  : "group-hover:translate-x-1"
+              }`}
+            />
 
-              <input
-                type="color"
-                value={selectedColour}
-                onChange={(e) => setSelectedColour(e.target.value)}
-                className="h-16 w-16 cursor-pointer rounded-xl border"
-              />
+          </div>
+        </button>
+      );
+    })}
 
-              <div>
-
-                <p className="font-medium">
-                  Custom Colour
-                </p>
-
-                <p className="text-neutral-500">
-                  {selectedColour}
-                </p>
-
-              </div>
-
-              <div
-                className="h-14 w-14 rounded-full border"
-                style={{
-                  backgroundColor: selectedColour,
-                }}
-              />
-
-            </div>
-
-          </section>
+  </div>
+</section>
 
           {/* Dynamic Measurements */}
 

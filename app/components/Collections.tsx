@@ -9,12 +9,12 @@ export default function Collections() {
 	return (
 		<section className="mx-auto max-w-7xl px-3 py-10">
 			{/* Header */}
-			<div className="mb-10">
-				<p className="text-xs uppercase tracking-[0.55em] text-neutral-400">
+			<div className="mb-5 px-5 md:px-3">
+				<p className="text-[11px] uppercase tracking-[0.45em] text-neutral-400">
 					Collections
 				</p>
-
-				<h2 className="mt-2 text-4xl font-light tracking-tight text-neutral-900">
+			
+				<h2 className="mt-2 text-xl font-light tracking-tight text-neutral-900">
 					Browse Our Collections
 				</h2>
 			</div>
