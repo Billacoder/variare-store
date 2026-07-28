@@ -67,7 +67,6 @@ export default function ProductConfigurator({ product }: Props) {
 			<AddToCartButton
 				product={product}
 				size={size}
-				disabled={!!sizes && !size}
 			/>
 		</div>
 	);
