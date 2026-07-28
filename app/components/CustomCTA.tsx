@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function CustomCTA() {
 	return (
-		<section className="bg-stone-50 py-24 md:py-36">
+		<section className="bg-stone-50 py-24 md:py-8">
 			<div className="mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 md:flex-row md:px-10">
 
 				{/* Image */}

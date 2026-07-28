@@ -7,6 +7,7 @@ export interface CartItem {
 	name: string;
 	price: number;
 	image: string;
+	size?: string;
 	quantity: number;
 }
 
@@ -14,8 +15,8 @@ interface CartContextType {
 	cart: CartItem[];
 	addToCart: (product: Omit<CartItem, "quantity">) => void;
 	removeFromCart: (id: number) => void;
-	increaseQuantity: (id: number) => void;
-	decreaseQuantity: (id: number) => void;
+	increaseQuantity: (id: number, size?: string) => void;
+	decreaseQuantity: (id: number, size?: string) => void;
 	total: number;
 }
 
@@ -30,13 +31,21 @@ export function CartProvider({ children }: CartProviderProps) {
 
 	function addToCart(product: Omit<CartItem, "quantity">) {
 		setCart((prev) => {
-			const existing = prev.find((item) => item.id === product.id);
+			const existing = prev.find(
+				(item) =>
+					item.id === product.id &&
+					item.size === product.size
+			);
 
 			if (existing) {
 				return prev.map((item) =>
-					item.id === product.id
-						? { ...item, quantity: item.quantity + 1 }
-						: item,
+					item.id === product.id &&
+					item.size === product.size
+						? {
+								...item,
+								quantity: item.quantity + 1,
+						  }
+						: item
 				);
 			}
 
@@ -48,25 +57,32 @@ export function CartProvider({ children }: CartProviderProps) {
 		setCart((prev) => prev.filter((item) => item.id !== id));
 	}
 
-	function increaseQuantity(id: number) {
+	function increaseQuantity(id: number, size?: string) {
 		setCart((prev) =>
 			prev.map((item) =>
-				item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
-			),
+				item.id === id && item.size === size
+					? { ...item, quantity: item.quantity + 1 }
+					: item
+			)
 		);
 	}
 
-	function decreaseQuantity(id: number) {
+	function decreaseQuantity(id: number, size?: string) {
 		setCart((prev) =>
 			prev
 				.map((item) =>
-					item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
+					item.id === id && item.size === size
+						? { ...item, quantity: item.quantity - 1 }
+						: item
 				)
-				.filter((item) => item.quantity > 0),
+				.filter((item) => item.quantity > 0)
 		);
 	}
 
-	const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+	const total = cart.reduce(
+		(sum, item) => sum + item.price * item.quantity,
+		0
+	);
 
 	return (
 		<CartContext.Provider

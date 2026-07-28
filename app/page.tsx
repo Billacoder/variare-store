@@ -12,8 +12,8 @@ export default function Home() {
 		<>
 			<Hero />
 			<BestSellers />
-			<ShopAll />
 			<ImageBanner />
+			<ShopAll />
 			<Collections />
 			<CustomCTA/>
 		</>

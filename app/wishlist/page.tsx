@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Bookmark } from "lucide-react";
+
+import { products } from "@/app/data/products";
 import { useWishlist } from "@/app/context/WishlistContext";
-import { useCart } from "@/app/context/CartContext";
 
 export default function WishlistPage() {
 	const { wishlist, removeFromWishlist } = useWishlist();
-	const { addToCart } = useCart();
 
 	if (wishlist.length === 0) {
 		return (
-			<main className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 pt-32 pb-20">
+			<main className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 pb-20 pt-32">
 				<h1 className="text-5xl font-light tracking-tight">Wishlist</h1>
 
 				<p className="mt-6 max-w-md text-center leading-8 text-neutral-500">
@@ -30,53 +31,51 @@ export default function WishlistPage() {
 	}
 
 	return (
-		<main className="mx-auto max-w-7xl px-6 pt-32 pb-20">
-			<h1 className="mb-12 text-5xl font-light tracking-tight">Wishlist</h1>
+		<main className="mx-auto max-w-7xl px-6 pb-20 pt-32">
+			<div className="mb-14">
+				<p className="text-[11px] uppercase tracking-[0.45em] text-neutral-400">
+					Saved Pieces
+				</p>
 
-			<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-				{wishlist.map((item) => (
-					<div
-						key={item.id}
-						className="overflow-hidden rounded-xl border bg-white"
-					>
-						<Image
-							src={item.image}
-							alt={item.name}
-							width={500}
-							height={500}
-							className="h-80 w-full object-cover"
-						/>
+				<h1 className="mt-4 text-5xl font-light tracking-tight">
+					Your Wishlist
+				</h1>
+			</div>
 
-						<div className="p-6">
-							<h2 className="text-xl font-medium">{item.name}</h2>
+			<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+				{wishlist.map((item) => {
+					const product = products.find((p) => p.id === item.id);
 
-							<p className="mt-2 text-neutral-500">${item.price.toFixed(2)}</p>
+					if (!product) return null;
 
-							<div className="mt-6 flex gap-3">
-								<button
-									onClick={() =>
-										addToCart({
-											id: item.id,
-											name: item.name,
-											price: item.price,
-											image: item.image,
-										})
-									}
-									className="flex-1 rounded-full bg-black py-3 text-white transition hover:bg-neutral-800"
-								>
-									Add to Cart
-								</button>
-
-								<button
-									onClick={() => removeFromWishlist(item.id)}
-									className="rounded-full border px-5 transition hover:bg-neutral-100"
-								>
-									Remove
-								</button>
+					return (
+						<Link
+							key={item.id}
+							href={`/product/${product.slug}`}
+							className="group"
+						>
+							<div className="relative overflow-hidden rounded-3xl bg-neutral-100">
+								<Image
+									src={item.image}
+									alt={item.name}
+									width={500}
+									height={650}
+									className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105"
+								/>
 							</div>
-						</div>
-					</div>
-				))}
+
+							<div className="mt-5">
+								<h3 className="text-lg font-medium transition duration-300 group-hover:translate-x-1">
+									{item.name}
+								</h3>
+
+								<p className="mt-2 text-neutral-500">
+									₹{item.price.toLocaleString("en-IN")}.00
+								</p>
+							</div>
+						</Link>
+					);
+				})}
 			</div>
 		</main>
 	);

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { products } from "@/app/data/products";
-import AddToCartButton from "@/app/components/AddToCartButton";
+import ProductConfigurator from "@/app/components/ProductConfigurator";
 
 type Props = {
 	params: Promise<{
@@ -43,7 +43,12 @@ export default async function ProductPage({ params }: Props) {
 					</h1>
 
 					<p className="mt-6 text-3xl font-semibold text-neutral-900">
-						{product.price}
+						₹
+						{(
+							typeof product.price === "number"
+								? product.price
+								: Number(String(product.price).replace(/[^0-9.]/g, ""))
+						).toLocaleString("en-IN")}
 					</p>
 
 					<span className="mt-4 rounded-full bg-green-100 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-green-700">
@@ -51,9 +56,9 @@ export default async function ProductPage({ params }: Props) {
 					</span>
 
 					<p className="mt-8 max-w-lg leading-8 text-neutral-600">
-						Beautifully handcrafted crochet piece made with care and attention
-						to detail. Designed to bring warmth, comfort, and timeless style to
-						your everyday collection.
+						Beautifully handcrafted crochet piece made with care and
+						attention to detail. Designed to bring warmth, comfort, and
+						timeless style to your everyday collection.
 					</p>
 
 					{/* Product Highlights */}
@@ -63,8 +68,8 @@ export default async function ProductPage({ params }: Props) {
 						<p>• Perfect for gifting or everyday use</p>
 					</div>
 
-					{/* Add to Cart */}
-					<AddToCartButton product={product} />
+					{/* Product Configurator */}
+					<ProductConfigurator product={product} />
 				</div>
 			</div>
 		</main>

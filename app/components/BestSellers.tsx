@@ -25,7 +25,7 @@ export default function BestSellers() {
   const bestSellers = products.filter((product) => product.bestSeller);
 
   return (
-    <section className="bg-stone-50 py-24 md:py-32">
+    <section className="bg-stone-50 py-24 md:py-8">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Header */}
@@ -38,7 +38,7 @@ export default function BestSellers() {
               Best Sellers
             </p>
 
-            <h2 className="mt-4 font-serif text-4xl md:text-6xl">
+            <h2 className="mt-4 font-serif text-2xl md:text-4xl">
               Customer Favorites
             </h2>
 
@@ -90,33 +90,31 @@ export default function BestSellers() {
                     className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105"
                   />
 
-                  <span className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-[10px] uppercase tracking-[0.35em] backdrop-blur">
-                    Best Seller
-                  </span>
-
                   <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-                      toggleWishlist({
-                        id: product.id,
-                        name: product.title,
-                        price: product.price,
-                        image: product.image,
-                      });
-                    }}
-                    className={`absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full backdrop-blur transition ${
-                      isInWishlist(product.id)
-                        ? "bg-black text-white"
-                        : "bg-white/90 hover:bg-black hover:text-white"
-                    }`}
-                  >
-                    <Bookmark
-                      size={18}
-                      fill={isInWishlist(product.id) ? "currentColor" : "none"}
-                    />
-                  </button>
+                    toggleWishlist({
+                      id: product.id,
+                      name: product.title,
+                      price: product.price,
+                      image: product.image,
+                    });
+                  }}
+                  aria-label="Toggle Wishlist"
+                  className={`absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full border shadow-lg backdrop-blur-xl transition-all duration-300 ${
+                    isInWishlist(product.id)
+                      ? "border-black bg-black text-white"
+                      : "border-white/30 bg-white/80 text-black md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 hover:bg-black hover:text-white"
+                  }`}
+                >
+                  <Bookmark
+                    size={18}
+                    strokeWidth={1.8}
+                    fill={isInWishlist(product.id) ? "currentColor" : "none"}
+                  />
+                </button>
 
                 </div>
 

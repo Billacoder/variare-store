@@ -5,11 +5,9 @@ import Link from "next/link";
 import { Heart } from "lucide-react";
 
 import { products } from "@/app/data/products";
-import { useCart } from "@/app/context/CartContext";
 import { useWishlist } from "@/app/context/WishlistContext";
 
 export default function ShopPage() {
-	const { addToCart } = useCart();
 	const { addToWishlist, isInWishlist } = useWishlist();
 
 	return (
@@ -87,27 +85,11 @@ export default function ShopPage() {
 											: Number(
 													String(product.price).replace(/[^0-9.]/g, "")
 											  )
-									).toLocaleString("en-IN")}
+									).toLocaleString("en-IN")}.00
 								</p>
 							</div>
 						</Link>
 
-						<button
-							onClick={() =>
-								addToCart({
-									id: product.id,
-									name: product.title,
-									price:
-										typeof product.price === "number"
-											? product.price
-											: Number(String(product.price).replace(/[^0-9.]/g, "")),
-									image: product.image,
-								})
-							}
-							className="mt-5 w-full border border-black py-3 text-[11px] uppercase tracking-[0.25em] transition-all duration-300 hover:bg-black hover:text-white"
-						>
-							Add to Cart
-						</button>
 					</div>
 				))}
 			</div>
