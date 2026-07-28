@@ -1,94 +1,155 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import VinylCard from "@/app/components/VinylCard";
 
-interface VinylCardProps {
-	title: string;
-	image: string;
-}
+const process = [
+	{
+		id: 1,
+		title: "Inspiration",
+		image: "/process/inspiration.jpg",
+		description:
+			"Every collection begins with ideas, mood boards and colour palettes gathered from everyday life.",
+	},
+	{
+		id: 2,
+		title: "Sketches",
+		image: "/process/sketches.jpg",
+		description:
+			"Concepts are translated into crochet patterns through hand sketches and planning.",
+	},
+	{
+		id: 3,
+		title: "Choosing Yarn",
+		image: "/process/yarn.jpg",
+		description:
+			"The perfect fibres, textures and colours are selected before the first stitch.",
+	},
+	{
+		id: 4,
+		title: "Crocheting",
+		image: "/process/crochet.jpg",
+		description:
+			"Every piece is carefully crocheted by hand with patience and attention to detail.",
+	},
+	{
+		id: 5,
+		title: "Finishing",
+		image: "/process/finishing.jpg",
+		description:
+			"Blocking, trimming and final inspection ensure every piece meets our standard.",
+	},
+	{
+		id: 6,
+		title: "Packaging",
+		image: "/process/packaging.jpg",
+		description:
+			"Your handmade piece is beautifully prepared before beginning its journey to you.",
+	},
+];
 
-export default function VinylCard({
-	title,
-	image,
-}: VinylCardProps) {
-	const [hovered, setHovered] = useState(false);
+export default function CreativeArchive() {
+	const [active, setActive] = useState(0);
 
 	return (
-		<div className="w-[320px] md:w-[420px]">
-			<div className="relative h-[320px] w-[320px] md:h-[420px] md:w-[420px]">
-				{/* Vinyl */}
-				<motion.div
-					animate={{
-						x: hovered ? 120 : 240,
-					}}
-					transition={{
-						type: "spring",
-						stiffness: 170,
-						damping: 22,
-					}}
-					className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center"
-				>
-					<motion.div
-						animate={{ rotate: 360 }}
-						transition={{
-							repeat: Infinity,
-							duration: 10,
-							ease: "linear",
-						}}
-						className="relative h-full w-full rounded-full bg-[#121212] shadow-[0_30px_60px_rgba(0,0,0,.35)]"
-					>
-						{/* Reflection */}
-						<div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,.16),transparent_30%)]" />
+		<section className="bg-[#faf8f5] py-32">
+			<div className="mx-auto max-w-7xl px-6">
+				{/* Heading */}
 
-						{/* Grooves */}
-						{Array.from({ length: 14 }).map((_, i) => (
-							<div
-								key={i}
-								className="absolute rounded-full border border-neutral-800"
-								style={{
-									inset: `${8 + i * 12}px`,
-								}}
-							/>
-						))}
+				<div className="mx-auto max-w-3xl text-center">
+					<p className="text-xs uppercase tracking-[0.55em] text-neutral-500">
+						Creative Archive
+					</p>
 
-						{/* Centre Label */}
-						<div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-stone-200 shadow-inner md:h-28 md:w-28">
-							<div className="h-3 w-3 rounded-full bg-black" />
+					<h2 className="mt-5 text-5xl font-light md:text-6xl">
+						Behind Every Stitch
+					</h2>
+
+					<p className="mt-8 text-lg leading-8 text-neutral-600">
+						Every handmade piece tells a story long before it reaches your
+						wardrobe. Browse each chapter of our creative journey like flipping
+						through a collection of vinyl records.
+					</p>
+				</div>
+
+				{/* Top Info */}
+
+				<div className="mt-20 flex items-center justify-between">
+					<div>
+						<p className="text-sm uppercase tracking-[0.4em] text-neutral-400">
+							Archive
+						</p>
+
+						<h3 className="mt-2 text-3xl font-light">
+							Chapter {String(active + 1).padStart(2, "0")}
+						</h3>
+					</div>
+
+					<div className="flex gap-3">
+						<div className="flex h-12 w-12 items-center justify-center rounded-full border">
+							<ChevronLeft size={18} />
 						</div>
-					</motion.div>
-				</motion.div>
 
-				{/* Sleeve */}
-				<div
-					onMouseEnter={() => setHovered(true)}
-					onMouseLeave={() => setHovered(false)}
-					className="absolute inset-0 z-10"
-				>
-					{/* Paper wrap */}
-					<div className="absolute inset-0 rounded-md bg-[#f6f3ef] shadow-[0_20px_45px_rgba(0,0,0,.18)]">
-						{/* Opening */}
-						<div className="absolute right-0 top-0 h-full w-5 bg-gradient-to-l from-black/15 to-transparent" />
-
-						{/* Cover */}
-						<div className="absolute inset-3 overflow-hidden rounded-sm">
-							<Image
-								src={image}
-								alt={title}
-								fill
-								className="object-cover transition duration-700 hover:scale-105"
-							/>
-
-							<div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+						<div className="flex h-12 w-12 items-center justify-center rounded-full border">
+							<ChevronRight size={18} />
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<h3 className="mt-8 text-center text-xl font-light tracking-wide">
-				{title}
-			</h3>
-		</div>
+				{/* Shelf */}
+
+				<div className="relative mt-20">
+					<div className="absolute left-0 right-0 top-[245px] h-5 rounded-full bg-neutral-900" />
+
+					<div className="absolute left-0 right-0 top-[250px] h-10 bg-black/10 blur-xl" />
+
+					<div className="overflow-x-auto pb-10">
+						<div className="flex min-w-max gap-16 px-8">
+							{process.map((item, index) => (
+								<div
+									key={item.id}
+									onMouseEnter={() => setActive(index)}
+									className={`transition-all duration-500 ${
+										active === index
+											? "scale-100 opacity-100"
+											: "scale-95 opacity-60"
+									}`}
+								>
+									<VinylCard
+										title={item.title}
+										image={item.image}
+									/>
+
+									<div className="mt-8 w-[320px] text-center md:w-[420px]">
+										<p className="text-[11px] uppercase tracking-[0.45em] text-neutral-400">
+											Chapter {String(index + 1).padStart(2, "0")}
+										</p>
+
+										<h4 className="mt-3 text-2xl font-light">
+											{item.title}
+										</h4>
+
+										<p className="mt-5 leading-7 text-neutral-600">
+											{item.description}
+										</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+
+				{/* Bottom Text */}
+
+				<div className="mx-auto mt-24 max-w-3xl text-center">
+					<p className="text-lg leading-8 text-neutral-600">
+						Hover over each record to reveal a chapter of our handmade process.
+						From inspiration to the final package, every step reflects the care,
+						time and craftsmanship behind every Variare creation.
+					</p>
+				</div>
+			</div>
+		</section>
 	);
 }
