@@ -1,5 +1,11 @@
 "use client";
 
+import Eyebrow from "@/app/components/ui/Eyebrow";
+import Heading from "@/app/components/ui/Heading";
+import Paragraph from "@/app/components/ui/Paragraph";
+import SectionLabel from "@/app/components/ui/SectionLabel";
+import Button from "@/app/components/ui/Button";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -7,6 +13,12 @@ import { ArrowUpRight } from "lucide-react";
 export default function CustomCTA() {
 	return (
 		<section className="bg-stone-50 py-24 md:py-8">
+
+			<div className="mb-5 px-5 md:px-3">
+					<SectionLabel>custom order</SectionLabel>
+				  </div>
+			
+
 			<div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
 				{/* Image */}
 				<div className="group relative overflow-hidden bg-neutral-100">
@@ -21,65 +33,59 @@ export default function CustomCTA() {
 
 				{/* Content */}
 				<div>
-					<p className="mb-4 text-[11px] uppercase tracking-[0.45em] text-neutral-400">
+					<Eyebrow className="text-neutral-400">
 						Custom Orders
-					</p>
+					</Eyebrow>
 
-					<h2 className="text-4xl font-medium leading-tight text-neutral-900 md:text-6xl">
-						Create Something
-						<br />
-						Just for You
-					</h2>
+					<Heading className="text-4xl font-medium leading-tight text-neutral-900 md:text-6xl">
+						<>
+							Create Something
+							<br />
+							Just for You
+						</>
+					</Heading>
 
-					<p className="mt-8 max-w-xl text-lg leading-8 text-neutral-600">
+					<Paragraph className="mt-8 max-w-xl text-lg leading-8 text-neutral-600">
 						Every crochet piece is handmade to order. Personalise
 						colours, sizing and details—or simply send us your
 						inspiration and we'll craft a piece that feels uniquely
 						yours.
-					</p>
+					</Paragraph>
 
 					<div className="mt-10 space-y-5">
 						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							<span className="text-neutral-700">
+							<Paragraph className="mt-0 max-w-none text-neutral-700">
 								Choose any colour palette
-							</span>
+							</Paragraph>
 						</div>
 
 						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							<span className="text-neutral-700">
+							<Paragraph className="mt-0 max-w-none text-neutral-700">
 								Send inspiration photos or sketches
-							</span>
+							</Paragraph>
 						</div>
 
 						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							<span className="text-neutral-700">
+							<Paragraph className="mt-0 max-w-none text-neutral-700">
 								Handcrafted using premium yarns
-							</span>
+							</Paragraph>
 						</div>
 
 						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
-							<span className="text-neutral-700">
+							<Paragraph className="mt-0 max-w-none text-neutral-700">
 								Made exclusively for you
-							</span>
+							</Paragraph>
 						</div>
 					</div>
 
 					<div className="mt-12">
-						<Link
-							href="/custom"
-							className="group inline-flex items-center gap-3 border border-neutral-900 px-8 py-4 text-[11px] uppercase tracking-[0.3em] transition-all duration-300 hover:bg-neutral-900 hover:text-white"
-						>
+						<Button href="/custom" variant="outlineDark">
 							Start Customising
-
-							<ArrowUpRight
-								size={16}
-								className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-							/>
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</div>

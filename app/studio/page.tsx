@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import VinylCard from "@/app/components/VinylCard";
+import VinylCard from "@/app/components/studio/VinylCard";
 
 const process = [
 	{

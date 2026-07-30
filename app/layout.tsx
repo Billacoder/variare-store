@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Intro from "./components/Intro";
-import PageTransition from "./components/PageTransition";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Intro from "./components/layout/Intro";
+import PageTransition from "./components/layout/PageTransition";
 
 import { CartProvider } from "@/app/context/CartContext";
 import { WishlistProvider } from "@/app/context/WishlistContext";

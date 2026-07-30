@@ -1,7 +1,11 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+
 import { products } from "@/app/data/products";
-import ProductConfigurator from "@/app/components/ProductConfigurator";
+import ProductConfigurator from "@/app/components/slug/ProductConfigurator";
+import ProductImageCarousel from "@/app/components/slug/ProductImageCarousel";
+import WishlistButton from "@/app/components/wishList/WishlistButton";
+import ProductReviews from "@/app/components/slug/ProductReviews";
+import RelatedProducts from "@/app/components/slug/RelatedProducts";
 
 type Props = {
 	params: Promise<{
@@ -21,14 +25,11 @@ export default async function ProductPage({ params }: Props) {
 	return (
 		<main className="mx-auto max-w-6xl px-6 pt-36 pb-20">
 			<div className="grid items-start gap-16 lg:grid-cols-2">
-				{/* Product Image */}
-				<div className="mx-auto w-full max-w-md overflow-hidden rounded-3xl bg-neutral-100">
-					<Image
-						src={product.image}
-						alt={product.title}
-						width={600}
-						height={600}
-						className="aspect-square w-full object-cover"
+				{/* Product Gallery */}
+				<div className="mx-auto w-full max-w-md">
+					<ProductImageCarousel
+						images={product.images}
+						title={product.title}
 					/>
 				</div>
 
@@ -47,31 +48,60 @@ export default async function ProductPage({ params }: Props) {
 						{(
 							typeof product.price === "number"
 								? product.price
-								: Number(String(product.price).replace(/[^0-9.]/g, ""))
+								: Number(
+										String(product.price).replace(/[^0-9.]/g, "")
+								  )
 						).toLocaleString("en-IN")}
 					</p>
 
-					<span className="mt-4 rounded-full bg-green-100 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-green-700">
+					{/* Wishlist */}
+					<div className="mt-6">
+						<WishlistButton product={product} />
+					</div>
+
+					{/* Rating */}
+					<div className="mt-6 flex items-center gap-3">
+						<div className="flex text-lg text-yellow-500">
+							{"★".repeat(Math.round(product.rating))}
+						</div>
+
+						<span className="text-sm text-neutral-500">
+							{product.rating} ({product.reviewCount} Reviews)
+						</span>
+					</div>
+
+					<span className="mt-6 rounded-full bg-green-100 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-green-700">
 						In Stock
 					</span>
 
+					{/* Description */}
 					<p className="mt-8 max-w-lg leading-8 text-neutral-600">
-						Beautifully handcrafted crochet piece made with care and
-						attention to detail. Designed to bring warmth, comfort, and
-						timeless style to your everyday collection.
+						{product.description}
 					</p>
 
 					{/* Product Highlights */}
 					<div className="mt-8 space-y-2 text-sm text-neutral-600">
-						<p>• Handmade with premium-quality yarn</p>
-						<p>• Soft, lightweight and durable</p>
-						<p>• Perfect for gifting or everyday use</p>
+						{product.highlights.map((highlight) => (
+							<p key={highlight}>• {highlight}</p>
+						))}
 					</div>
-
 					{/* Product Configurator */}
 					<ProductConfigurator product={product} />
 				</div>
 			</div>
+
+			{/* Reviews */}
+			<ProductReviews
+				reviews={product.reviews}
+				rating={product.rating}
+				reviewCount={product.reviewCount}
+			/>
+
+			{/* Related Products */}
+			<RelatedProducts
+				currentId={product.id}
+				collection={product.collection}
+			/>
 		</main>
 	);
 }

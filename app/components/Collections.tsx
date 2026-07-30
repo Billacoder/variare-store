@@ -1,5 +1,7 @@
 "use client";
 
+import SectionLabel from "@/app/components/ui/SectionLabel";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -10,13 +12,7 @@ export default function Collections() {
 		<section className="mx-auto max-w-7xl px-3 py-10">
 			{/* Header */}
 			<div className="mb-5 px-5 md:px-3">
-				<p className="text-[11px] uppercase tracking-[0.45em] text-neutral-400">
-					Collections
-				</p>
-			
-				<h2 className="mt-2 text-xl font-light tracking-tight text-neutral-900">
-					Browse Our Collections
-				</h2>
+				<SectionLabel>Collections</SectionLabel>
 			</div>
 
 			{/* Grid */}

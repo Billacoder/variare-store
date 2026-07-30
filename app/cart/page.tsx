@@ -87,10 +87,15 @@ export default function CartPage() {
               </div>
 
               <div className="text-right">
-                <p className="font-semibold">
-                  ₹{(item.price * item.quantity).toFixed(2)}
+                <p className="mt-1 text-neutral-500">
+                  ₹{item.price.toFixed(2)}
                 </p>
 
+          {item.size && (
+            <p className="mt-1 text-sm uppercase tracking-wide text-neutral-500">
+              Size: <span className="font-medium text-neutral-800">{item.size}</span>
+            </p>
+          )}
                 <button
                   onClick={() => removeFromCart(item.id)}
                   className="mt-3 text-sm text-red-500 hover:text-red-700"
@@ -114,6 +119,8 @@ export default function CartPage() {
               ₹{total.toFixed(2)}
             </span>
           </div>
+
+          
 
           <Link
             href="/checkout"

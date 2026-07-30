@@ -1,104 +1,279 @@
 export const products = [
-	// Wearables
-	{
-		id: 1,
-		title: "Modern Crochet Top",
-		slug: "modern-crochet-top",
-		collection: "wearables",
-		image: "/chrochet products/tops/43065740182406141.jpg",
-		price: 1140,
-	},
-	{
-		id: 2,
-		title: "Offset Cardigan",
-		slug: "offset-cardigan",
-		collection: "wearables",
-		image: "/chrochet products/tops/Offset cardigan by Juuulsmakes.jpg",
-		price: 1320,
-		bestSeller: true,
-	},
-	{
-		id: 3,
-		title: "Crochet Summer Top",
-		slug: "crochet-summer-top",
-		collection: "wearables",
-		image:
-			"/chrochet products/tops/“Modern Crochet Top Patterns to Try Today”.jpg",
-		price: 1180,
-	},
+  // Wearables
+  
+  {
+      id: 1,
+      title: "Offset Cardigan",
+      slug: "offset-cardigan",
+      collection: "wearables",
 
-	// Bags
-	{
-		id: 4,
-		title: "Handcrafted Crochet Tote",
-		slug: "handcrafted-crochet-tote",
-		collection: "bags",
-		image:
-			"/chrochet products/bags/Handmade Woven Crochet Bag_ Two-Tone T-Shirt Yarn Purse.jpg",
-		price: 1650,
-		bestSeller: true,
-	},
-	{
-		id: 5,
-		title: "Round Seashell Bag",
-		slug: "round-seashell-bag",
-		collection: "bags",
-		image: "/chrochet products/bags/Ariel round seashell bag.jpg",
-		price: 1290,
-	},
-	{
-		id: 6,
-		title: "Classic Red Crochet Bag",
-		slug: "classic-red-crochet-bag",
-		collection: "bags",
-		image: "/chrochet products/bags/red.jpg",
-		price: 1080,
-		bestSeller: true,
-	},
+      images: [
+        "/collections/wearables/photo 1.jpg",
+        "/collections/wearables/photo 2.jpg",
+        "/collections/wearables/photo 3.jpg",
+      ],
 
-	// Beanies
-	{
-		id: 7,
-		title: "Animal Crochet Beanie",
-		slug: "animal-crochet-beanie",
-		collection: "beanies",
-		image: "/chrochet products/beanie/Animal-Themed Crochet Hats.jpg",
-		price: 980,
-	},
+      price: 1320,
 
-	// Blankets
-	{
-		id: 8,
-		title: "Easy Baby Blanket",
-		slug: "easy-baby-blanket",
-		collection: "blankets",
-		image:
-			"/chrochet products/blanket/Easy Baby Blanket Crochet Pattern FREE - 2 color crochet blanket.jpg",
-		price: 1650,
-		bestSeller: true,
-	},
+      bestSeller: true,
 
-	// Crochet Plush
-	{
-		id: 9,
-		title: "Crochet Plush Toy",
-		slug: "crochet-plush-toy",
-		collection: "crochet-plush",
-		image: "/chrochet products/stuffed animals/I Made These Crochet Pieces.jpg",
-		price: 890,
-	},
+      description:
+        "A handcrafted crochet cardigan designed with a relaxed silhouette and soft premium yarn. Lightweight, breathable, and perfect for layering throughout the year.",
 
-	// Little Knits
-	{
-		id: 10,
-		title: "Baby Flower Dress",
-		slug: "baby-flower-dress",
-		collection: "little-knits",
-		image:
-			"/chrochet products/baby/CROCHET PATTERN Baby Flower Dress, Sunflower Granny Square, Baby Sundress, 0-24 Months, PDF Download - Etsy.jpg",
-		price: 1020,
-		bestSeller: true,
-	},
+      highlights: [
+        "Handmade with premium yarn",
+        "Lightweight & breathable",
+        "Comfortable everyday fit",
+        "Gift ready packaging",
+      ],
+
+      rating: 4.9,
+
+      reviewCount: 27,
+
+      reviews: [
+        {
+          id: 1,
+          name: "Sarah",
+          rating: 5,
+          comment:
+            "Amazing quality! Looks even better in person.",
+          date: "2026-06-18",
+        },
+        {
+          id: 2,
+          name: "Emma",
+          rating: 5,
+          comment:
+            "The stitching is beautiful and delivery was fast.",
+          date: "2026-07-04",
+        },
+        {
+          id: 3,
+          name: "Ava",
+          rating: 4,
+          comment:
+            "Very soft and exactly like the photos.",
+          date: "2026-07-20",
+        },
+      ],
+    },
+    
+   {
+  id: 2,
+  title: "Crochet Summer Top",
+  slug: "crochet-summer-top",
+  collection: "wearables",
+  images: [
+    "/chrochet products/tops/summer-top-1.jpg",
+    "/chrochet products/tops/summer-top-2.jpg",
+    "/chrochet products/tops/summer-top-3.jpg",
+  ],
+  price: 1180,
+  bestSeller: false,
+
+  description:
+    "A lightweight handmade crochet top designed for warm days. Soft, breathable and effortlessly stylish for everyday wear.",
+
+  highlights: [
+    "Handmade crochet craftsmanship",
+    "Breathable cotton blend",
+    "Lightweight and comfortable",
+    "Perfect for summer outfits",
+  ],
+
+  rating: 4.8,
+
+  reviewCount: 18,
+
+  reviews: [
+    {
+      id: 1,
+      name: "Sophia",
+      rating: 5,
+      comment: "Fits perfectly and feels incredibly soft.",
+      date: "2026-07-02",
+    },
+    {
+      id: 2,
+      name: "Olivia",
+      rating: 5,
+      comment: "Beautiful colour and excellent quality.",
+      date: "2026-07-11",
+    },
+    {
+      id: 3,
+      name: "Mia",
+      rating: 4,
+      comment: "Lovely top for summer days.",
+      date: "2026-07-24",
+    },
+  ],
+},
+
+  // Bags
+ {
+  id: 4,
+  title: "Handcrafted Crochet Tote",
+  slug: "handcrafted-crochet-tote",
+  collection: "bags",
+  images: [
+    "/chrochet products/bags/tote-1.jpg",
+    "/chrochet products/bags/tote-2.jpg",
+    "/chrochet products/bags/tote-3.jpg",
+  ],
+  price: 1650,
+  bestSeller: true,
+
+  description:
+    "A spacious handmade crochet tote bag crafted for everyday use while maintaining a timeless luxury aesthetic.",
+
+  highlights: [
+    "Large storage capacity",
+    "Premium handmade finish",
+    "Durable woven handles",
+    "Ideal for daily essentials",
+  ],
+
+  rating: 4.9,
+
+  reviewCount: 34,
+
+  reviews: [
+    {
+      id: 1,
+      name: "Emily",
+      rating: 5,
+      comment: "Perfect size and beautifully made.",
+      date: "2026-06-30",
+    },
+    {
+      id: 2,
+      name: "Grace",
+      rating: 5,
+      comment: "I've received so many compliments already.",
+      date: "2026-07-15",
+    },
+    {
+      id: 3,
+      name: "Lily",
+      rating: 5,
+      comment: "Worth every penny.",
+      date: "2026-07-21",
+    },
+  ],
+},
+
+  {
+  id: 5,
+  title: "Round Seashell Bag",
+  slug: "round-seashell-bag",
+  collection: "bags",
+  images: [
+    "/chrochet products/bags/seashell-1.jpg",
+    "/chrochet products/bags/seashell-2.jpg",
+    "/chrochet products/bags/seashell-3.jpg",
+  ],
+  price: 1290,
+  bestSeller: false,
+
+  description:
+    "An elegant round crochet bag inspired by coastal textures, perfect for casual outings and holidays.",
+
+  highlights: [
+    "Unique circular design",
+    "Handcrafted details",
+    "Comfortable shoulder strap",
+    "Lightweight construction",
+  ],
+
+  rating: 4.7,
+
+  reviewCount: 15,
+
+  reviews: [
+    {
+      id: 1,
+      name: "Ella",
+      rating: 5,
+      comment: "Looks amazing with every outfit.",
+      date: "2026-06-27",
+    },
+    {
+      id: 2,
+      name: "Charlotte",
+      rating: 4,
+      comment: "Very cute and practical.",
+      date: "2026-07-10",
+    },
+    {
+      id: 3,
+      name: "Ruby",
+      rating: 5,
+      comment: "Exactly what I was looking for.",
+      date: "2026-07-26",
+    },
+  ],
+},
+
+  // Blankets
+  {
+  id: 6,
+  title: "Classic Red Crochet Bag",
+  slug: "classic-red-crochet-bag",
+  collection: "bags",
+  images: [
+    "/chrochet products/bags/red-1.jpg",
+    "/chrochet products/bags/red-2.jpg",
+    "/chrochet products/bags/red-3.jpg",
+  ],
+  price: 1080,
+  bestSeller: true,
+
+  description:
+    "A bold handmade crochet bag featuring a vibrant red finish that adds character to any outfit.",
+
+  highlights: [
+    "Bold statement colour",
+    "Handmade crochet finish",
+    "Comfortable everyday size",
+    "Strong durable yarn",
+  ],
+
+  rating: 4.8,
+
+  reviewCount: 20,
+
+  reviews: [
+    {
+      id: 1,
+      name: "Hannah",
+      rating: 5,
+      comment: "Absolutely love the vibrant colour.",
+      date: "2026-07-05",
+    },
+    {
+      id: 2,
+      name: "Lucy",
+      rating: 5,
+      comment: "Beautifully crafted.",
+      date: "2026-07-12",
+    },
+    {
+      id: 3,
+      name: "Isla",
+      rating: 4,
+      comment: "Feels premium and sturdy.",
+      date: "2026-07-23",
+    },
+  ],
+},
+
+  // Plush
+
+
+  // Little Knits
+ 
 ];
 
 export type Product = (typeof products)[number];
