@@ -133,7 +133,7 @@ console.log("selectedProduct:", selectedProduct);
 
           <div className="space-y-16 rounded-3xl bg-white p-8 shadow-sm md:p-14">
             <ProductSelector
-              products={products}
+              products={products as any}
               selectedProduct={selectedProduct}
               setSelectedProduct={setSelectedProduct}
             />
