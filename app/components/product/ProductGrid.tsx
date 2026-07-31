@@ -1,7 +1,9 @@
 "use client";
 
-import type { Product } from "@/app/data/products";
+import { products } from "@/app/data/products";
 import ProductCard from "./ProductCard";
+
+type Product = typeof products[number];
 
 type ProductGridProps = {
   products: Product[];
