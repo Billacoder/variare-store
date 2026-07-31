@@ -7,6 +7,7 @@ import ProductOption from "./ProductOption";
 
 type Product = {
   id: number;
+  name: string;
   title: string;
   icon: string;
   description: string;
