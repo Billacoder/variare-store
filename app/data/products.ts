@@ -8,14 +8,15 @@ export const products = [
       collection: "wearables",
 
       images: [
-        "/collections/wearables/jackets/photo 8.jpg",
-        "/collections/wearables/jackets/photo 9.jpg",
-        "/collections/wearables/jackets/photo 10.jpg",
+        "/collections/wearables/photo 8.jpg",
+        "/collections/wearables/photo 9.jpg",
+        "/collections/wearables/photo 10.jpg",
       ],
 
       price: 1320,
 
       bestSeller: true,
+      newArrival: false,
 
       description:
         "A handcrafted crochet cardigan designed with a relaxed silhouette and soft premium yarn. Lightweight, breathable, and perfect for layering throughout the year.",
@@ -65,12 +66,13 @@ export const products = [
   slug: "crochet-summer-top",
   collection: "wearables",
   images: [
-    "/collections/wearables/croptops/photo 1.jpg",
-    "/collections/wearables/photo 5.jpg",
-    "/collections/wearables/photo 6.jpg",
+    "/collections/wearables/photo 8.jpg",
+    "/collections/wearables/photo 9.jpg",
+    "/collections/wearables/photo 10.jpg",
   ],
   price: 1180,
   bestSeller: false,
+  newArrival: true,
 
   description:
     "A lightweight handmade crochet top designed for warm days. Soft, breathable and effortlessly stylish for everyday wear.",
@@ -118,12 +120,13 @@ export const products = [
   slug: "handcrafted-crochet-tote",
   collection: "bags",
   images: [
-    "/collections/wearables/jackets/photo 9.jpg",
-    "/chrochet products/bags/tote-2.jpg",
-    "/chrochet products/bags/tote-3.jpg",
+    "/collections/wearables/photo 8.jpg",
+    "/collections/wearables/photo 9.jpg",
+    "/collections/wearables/photo 10.jpg",
   ],
   price: 1650,
   bestSeller: true,
+  newArrival: false,
 
   description:
     "A spacious handmade crochet tote bag crafted for everyday use while maintaining a timeless luxury aesthetic.",
@@ -170,12 +173,13 @@ export const products = [
   slug: "round-seashell-bag",
   collection: "bags",
   images: [
-    "/chrochet products/bags/seashell-1.jpg",
-    "/chrochet products/bags/seashell-2.jpg",
-    "/chrochet products/bags/seashell-3.jpg",
+    "/collections/wearables/photo 8.jpg",
+    "/collections/wearables/photo 9.jpg",
+    "/collections/wearables/photo 10.jpg",
   ],
   price: 1290,
   bestSeller: false,
+  newArrival: true,
 
   description:
     "An elegant round crochet bag inspired by coastal textures, perfect for casual outings and holidays.",
@@ -223,12 +227,13 @@ export const products = [
   slug: "classic-red-crochet-bag",
   collection: "bags",
   images: [
-    "/chrochet products/bags/red-1.jpg",
-    "/chrochet products/bags/red-2.jpg",
-    "/chrochet products/bags/red-3.jpg",
+    "/collections/wearables/photo 8.jpg",
+    "/collections/wearables/photo 9.jpg",
+    "/collections/wearables/photo 10.jpg",
   ],
   price: 1080,
   bestSeller: true,
+  newArrival: false,
 
   description:
     "A bold handmade crochet bag featuring a vibrant red finish that adds character to any outfit.",
@@ -267,13 +272,5 @@ export const products = [
       date: "2026-07-23",
     },
   ],
-},
-
-  // Plush
-
-
-  // Little Knits
- 
+}
 ];
-
-export type Product = (typeof products)[number];

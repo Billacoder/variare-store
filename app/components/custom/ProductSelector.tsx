@@ -6,7 +6,8 @@ import StepHeader from "./StepHeader";
 import ProductOption from "./ProductOption";
 
 type Product = {
-  name: string;
+  id: number;
+  title: string;
   icon: string;
   description: string;
   price: number;
@@ -38,12 +39,12 @@ export default function ProductSelector({
         </div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {products.map((product) => (
+         {products.map((product) => (
             <ProductOption
-              key={product.name}
+              key={product.id}
               product={product}
-              active={selectedProduct === product.name}
-              onClick={() => setSelectedProduct(product.name)}
+              active={selectedProduct === product.title}
+              onClick={() => setSelectedProduct(product.title)}
             />
           ))}
         </div>

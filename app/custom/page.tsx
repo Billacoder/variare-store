@@ -50,21 +50,67 @@ export default function CustomPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
 
-    console.log({
-      selectedProduct,
-      measurements,
-      uploadedImages,
-      notes,
-      form,
-      timeline,
-      agreed,
+  console.log("Sending:", {
+    selectedProduct,
+    measurements,
+    uploadedImages,
+    notes,
+    form,
+    timeline,
+    agreed,
+  });
+
+  try {
+    const response = await fetch("/api/custom-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        selectedProduct,
+        measurements,
+        uploadedImages,
+        notes,
+        form,
+        timeline,
+        agreed,
+      }),
     });
 
-    // TODO: Send this data to your backend/API
-  };
+    const data = await response.json();
+
+    console.log("Status:", response.status);
+    console.log("API Response:", data);
+
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to submit request.");
+    }
+
+    alert("Custom order submitted!");
+
+    // Optional: Reset the form
+    setSelectedProduct("");
+    setMeasurements({});
+    setUploadedImages([]);
+    setNotes("");
+    setTimeline("No Rush");
+    setAgreed(false);
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+    });
+  } catch (error) {
+    console.error("Submit Error:", error);
+  }
+};
+
+console.log("selectedProduct:", selectedProduct);
 
   return (
     <form onSubmit={handleSubmit}>

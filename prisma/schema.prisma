@@ -36,10 +36,34 @@ model OrderItem {
   productName String
 
   price       Float
-
   quantity    Int
-
   size        String?
 
   createdAt   DateTime @default(now())
+}
+
+model CustomOrder {
+  id            String   @id @default(cuid())
+
+  // Customer
+  name          String
+  email         String
+  phone         String
+
+  // Order Details
+  product       String
+  measurements  Json
+  notes         String?
+
+  timeline      String
+
+  // Uploaded image URLs
+  imageUrls     String[]
+
+  agreed        Boolean
+
+  // Workflow
+  status        String   @default("Pending")
+
+  createdAt     DateTime @default(now())
 }
