@@ -46,7 +46,7 @@ export default async function CollectionPage({ params }: Props) {
 					>
 						<div className="overflow-hidden bg-neutral-100">
 							<Image
-								src={product.image}
+								src={product.images[0]}
 								alt={product.title}
 								width={400}
 								height={400}
