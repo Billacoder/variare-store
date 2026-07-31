@@ -8,7 +8,7 @@ export default function Logo({
 	return (
 		<Link
 			href={href}
-			className={`text-xl font-medium tracking-[0.18em] ${className}`}
+			className={`text-sm uppercase tracking-[0.2em] ${className}`}
 		>
 			{children}
 		</Link>

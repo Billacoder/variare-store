@@ -7,7 +7,7 @@ import Logo from "@/app/components/logo/logo";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Heart, Handbag, CircleUserRound, Menu, X } from "lucide-react";
+import { Heart, ShoppingCart, CircleUserRound, Menu, X } from "lucide-react";
 
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
@@ -57,12 +57,12 @@ export default function Navbar() {
 				<Logo />
 
 				{/* Mobile Actions */}
-				<div className="flex items-center gap-4 md:hidden">
+				<div className="flex items-center gap-3 md:hidden">
 						<Link
 							href="/cart"
 							className="transition-colors duration-500 hover:opacity-70"
 						>
-							<Handbag
+							<ShoppingCart
 								className="h-[18px] w-[18px] transition-transform duration-300 hover:scale-110"
 								strokeWidth={1.7}
 							/>
@@ -115,7 +115,7 @@ export default function Navbar() {
 					</Link>
 
 					<Link href="/cart">
-						<Handbag
+						<ShoppingCart
 							className="h-[18px] w-[17px] transition-all duration-300 hover:scale-110 hover:opacity-70"
 							strokeWidth={1.7}
 						/>

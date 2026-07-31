@@ -12,11 +12,11 @@ type Product = {
   price: number;
 };
 
-type ProductSelectorProps = {
+interface ProductSelectorProps {
   products: Product[];
   selectedProduct: string;
-  setSelectedProduct: (product: string) => void;
-};
+ setSelectedProduct: (product: string) => void;
+}
 
 export default function ProductSelector({
   products,
@@ -24,24 +24,30 @@ export default function ProductSelector({
   setSelectedProduct,
 }: ProductSelectorProps) {
   return (
-    <section>
+    <section className="space-y-10">
       <StepHeader
         step="Step 1"
         title="Choose Your Product"
-        description="Every piece is handcrafted from scratch. Select the item you'd like us to create for you."
-        icon={<Sparkles size={26} className="text-neutral-400" />}
+        description="Select the handcrafted piece you'd like us to create. Every order is made individually and tailored to your preferences."
+        icon={<Sparkles className="text-neutral-400" size={26} />}
       />
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {products.map((product) => (
-          <ProductOption
-            key={product.name}
-            product={product}
-            active={selectedProduct === product.name}
-            onClick={() => setSelectedProduct(product.name)}
-          />
-        ))}
-      </div>
+      {products.length === 0 ? (
+        <div className="rounded-2xl border border-dashed border-neutral-300 py-16 text-center text-neutral-500">
+          No products available.
+        </div>
+      ) : (
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {products.map((product) => (
+            <ProductOption
+              key={product.name}
+              product={product}
+              active={selectedProduct === product.name}
+              onClick={() => setSelectedProduct(product.name)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

@@ -12,7 +12,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function CustomCTA() {
 	return (
-		<section className="bg-stone-50 py-24 md:py-8">
+		<section className="py-4 md:py-8">
 
 			<div className="mb-5 px-5 md:px-3">
 					<SectionLabel>custom order</SectionLabel>
@@ -53,6 +53,7 @@ export default function CustomCTA() {
 					</Paragraph>
 
 					<div className="mt-10 space-y-5">
+						
 						<div className="flex items-center gap-4">
 							<div className="h-2 w-2 rounded-full bg-black" />
 							<Paragraph className="mt-0 max-w-none text-neutral-700">

@@ -14,7 +14,7 @@ export default function ShopAll() {
     <section className="py-8 md:py-12">
       {/* Header */}
       <div className="mb-5 px-5 md:px-3">
-        <SectionLabel>Shop All</SectionLabel>
+        <SectionLabel>Shop all</SectionLabel>
       </div>
 
       {/* Carousel */}

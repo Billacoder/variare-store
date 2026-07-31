@@ -1,6 +1,7 @@
 "use client";
 
 import SectionLabel from "@/app/components/ui/SectionLabel";
+import Heading from "@/app/components/ui/Heading";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -37,13 +38,9 @@ export default function Collections() {
 
 							{/* Content */}
 							<div className="absolute bottom-0 left-0 p-6">
-								<p className="mb-2 text-[11px] uppercase tracking-[0.45em] text-white/70">
-									Collection
-								</p>
+								<SectionLabel className="text-white">Collection</SectionLabel>
 
-								<h3 className="text-3xl font-light tracking-tight text-white md:text-4xl">
-									{collection.title}
-								</h3>
+								<Heading className="text-white">{collection.title}</Heading>
 
 								<div className="mt-3 flex items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
 									<span className="text-xs uppercase tracking-[0.3em] text-white/80">

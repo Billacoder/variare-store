@@ -1,5 +1,8 @@
 "use client";
 
+import SectionLabel from "@/app/components/ui/SectionLabel";
+import Money from "@/app/components/ui/Money";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Bookmark, ArrowUpRight } from "lucide-react";
@@ -68,15 +71,17 @@ export default function ProductCard({
 
       {/* Product Info */}
       <div className="mt-4 space-y-1">
-        <h3 className="text-sm font-medium tracking-tight text-neutral-900 md:text-base md:transition-transform md:duration-300 md:group-hover:translate-x-1">
-          {product.title}
-        </h3>
 
-        <p className="text-sm text-neutral-500">
+        <SectionLabel className="">
+          {product.title}
+        </SectionLabel>
+
+        <Money>
           ₹{product.price.toLocaleString("en-IN")}.00
-        </p>
+        </Money>
 
         <div className="mt-3 hidden items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 md:flex">
+          
           <span className="text-[11px] uppercase tracking-[0.3em] text-neutral-500">
             View Product
           </span>

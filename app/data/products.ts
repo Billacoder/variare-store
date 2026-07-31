@@ -8,9 +8,9 @@ export const products = [
       collection: "wearables",
 
       images: [
-        "/collections/wearables/photo 1.jpg",
-        "/collections/wearables/photo 2.jpg",
-        "/collections/wearables/photo 3.jpg",
+        "/collections/wearables/jackets/photo 8.jpg",
+        "/collections/wearables/jackets/photo 9.jpg",
+        "/collections/wearables/jackets/photo 10.jpg",
       ],
 
       price: 1320,
@@ -65,9 +65,9 @@ export const products = [
   slug: "crochet-summer-top",
   collection: "wearables",
   images: [
-    "/chrochet products/tops/summer-top-1.jpg",
-    "/chrochet products/tops/summer-top-2.jpg",
-    "/chrochet products/tops/summer-top-3.jpg",
+    "/collections/wearables/croptops/photo 1.jpg",
+    "/collections/wearables/photo 5.jpg",
+    "/collections/wearables/photo 6.jpg",
   ],
   price: 1180,
   bestSeller: false,
@@ -118,7 +118,7 @@ export const products = [
   slug: "handcrafted-crochet-tote",
   collection: "bags",
   images: [
-    "/chrochet products/bags/tote-1.jpg",
+    "/collections/wearables/jackets/photo 9.jpg",
     "/chrochet products/bags/tote-2.jpg",
     "/chrochet products/bags/tote-3.jpg",
   ],

@@ -15,19 +15,19 @@ export default function CartPage() {
 
   if (cart.length === 0) {
     return (
-      <main className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 pt-32 pb-20">
-        <h1 className="text-5xl font-light tracking-tight">
+      <main className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 pt-36 pb-24">
+        <h1 className="text-5xl font-light tracking-tight md:text-6xl">
           Shopping Cart
         </h1>
 
-        <p className="mt-6 max-w-md text-center text-neutral-500">
+        <p className="mt-6 max-w-md text-center leading-8 text-neutral-500">
           Your cart is currently empty. Browse our handcrafted crochet
           collection and add your favourite pieces.
         </p>
 
         <Link
           href="/shop"
-          className="mt-10 rounded-full border border-black px-8 py-3 text-sm uppercase tracking-[0.25em] transition hover:bg-black hover:text-white"
+          className="mt-10 rounded-full border border-black px-8 py-3 text-xs font-medium uppercase tracking-[0.3em] transition-all duration-300 hover:bg-black hover:text-white"
         >
           Continue Shopping
         </Link>
@@ -36,49 +36,56 @@ export default function CartPage() {
   }
 
   return (
-    <main className="mx-auto max-w-7xl px-6 pt-32 pb-20">
-      <h1 className="mb-12 text-5xl font-light tracking-tight">
-        Shopping Cart
-      </h1>
+    <main className="mx-auto max-w-7xl px-6 pt-36 pb-24">
+      <div className="mb-16">
+        
+        <h1 className="mt-4 text-5xl font-light tracking-tight md:text-6xl">
+          Shopping Cart
+        </h1>
+      </div>
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_350px]">
+      <div className="grid gap-16 lg:grid-cols-[1fr_380px]">
         {/* Cart Items */}
         <div className="space-y-8">
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex items-center justify-between border-b pb-6"
+              className="flex flex-col gap-8 rounded-3xl border border-neutral-200 bg-white p-8 transition-all duration-300 hover:border-neutral-300 hover:shadow-lg md:flex-row md:items-center md:justify-between"
             >
               <div className="flex items-center gap-6">
-                <div className="relative h-28 w-28 overflow-hidden rounded-lg">
+                <div className="relative h-36 w-36 overflow-hidden rounded-2xl bg-neutral-100">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition duration-500 hover:scale-105"
                   />
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-medium">{item.name}</h2>
+                  <h2 className="text-2xl font-light tracking-tight">
+                    {item.name}
+                  </h2>
 
-                  <p className="mt-1 text-neutral-500">
+                  <p className="mt-3 text-lg font-medium text-neutral-900">
                     ₹{item.price.toFixed(2)}
                   </p>
 
-                  <div className="mt-4 flex items-center gap-3">
+                  <div className="mt-6 inline-flex items-center rounded-full border border-neutral-300 bg-white">
                     <button
                       onClick={() => decreaseQuantity(item.id)}
-                      className="flex h-8 w-8 items-center justify-center rounded-full border"
+                      className="px-4 py-2 transition hover:bg-neutral-100"
                     >
                       −
                     </button>
 
-                    <span>{item.quantity}</span>
+                    <span className="min-w-10 text-center text-sm font-medium">
+                      {item.quantity}
+                    </span>
 
                     <button
                       onClick={() => increaseQuantity(item.id)}
-                      className="flex h-8 w-8 items-center justify-center rounded-full border"
+                      className="px-4 py-2 transition hover:bg-neutral-100"
                     >
                       +
                     </button>
@@ -86,19 +93,23 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <div className="text-right">
-                <p className="mt-1 text-neutral-500">
+              <div className="text-left md:text-right">
+                <p className="text-xl font-medium text-neutral-900">
                   ₹{item.price.toFixed(2)}
                 </p>
 
-          {item.size && (
-            <p className="mt-1 text-sm uppercase tracking-wide text-neutral-500">
-              Size: <span className="font-medium text-neutral-800">{item.size}</span>
-            </p>
-          )}
+                {item.size && (
+                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-neutral-500">
+                    Size{" "}
+                    <span className="font-medium text-neutral-900">
+                      {item.size}
+                    </span>
+                  </p>
+                )}
+
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="mt-3 text-sm text-red-500 hover:text-red-700"
+                  className="mt-6 text-sm text-neutral-500 transition hover:text-black"
                 >
                   Remove
                 </button>
@@ -108,30 +119,31 @@ export default function CartPage() {
         </div>
 
         {/* Order Summary */}
-        <div className="h-fit rounded-2xl border p-8 shadow-sm">
-          <h2 className="text-2xl font-medium">
+        <div className="sticky top-28 h-fit rounded-3xl border border-neutral-200 bg-white p-10 shadow-sm">
+          <h2 className="text-2xl font-light tracking-tight">
             Order Summary
           </h2>
 
-          <div className="mt-8 flex justify-between text-lg">
-            <span>Total</span>
-            <span className="font-semibold">
-              ₹{total.toFixed(2)}
-            </span>
-          </div>
+          <div className="mt-8 border-t border-neutral-200 pt-6">
+            <div className="flex justify-between text-lg">
+              <span className="text-neutral-600">Total</span>
 
-          
+              <span className="font-semibold text-neutral-900">
+                ₹{total.toFixed(2)}
+              </span>
+            </div>
+          </div>
 
           <Link
             href="/checkout"
-            className="mt-8 flex w-full items-center justify-center rounded-full bg-black px-8 py-4 text-white transition hover:bg-neutral-800"
+            className="mt-10 flex w-full items-center justify-center rounded-full bg-black px-8 py-4 text-xs font-medium uppercase tracking-[0.3em] text-white transition-all duration-300 hover:bg-neutral-800"
           >
             Proceed to Checkout
           </Link>
 
           <Link
             href="/shop"
-            className="mt-4 block text-center text-sm text-neutral-500 hover:text-black"
+            className="mt-6 block text-center text-sm text-neutral-500 transition hover:text-black"
           >
             Continue Shopping
           </Link>
