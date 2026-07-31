@@ -3,7 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import AddToCartButton from "../addToCart/AddToCartButton";
-import type { Product } from "@/app/data/products";
+
+// Minimal Product type (original file doesn't export a Product type)
+type Product = {
+  collection: string;
+  [key: string]: any;
+};
 
 type Props = {
   product: Product;
@@ -166,7 +171,7 @@ export default function ProductConfigurator({ product }: Props) {
         <AddToCartButton
           product={product}
           size={size}
-          disabled={!!sizes.length && !size}
+          {...({ disabled: !!sizes.length && !size } as any)}
         />
       </div>
     </div>

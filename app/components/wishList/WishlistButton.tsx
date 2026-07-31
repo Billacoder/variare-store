@@ -17,13 +17,16 @@ export default function WishlistButton({
 }) {
   const { addToWishlist, isInWishlist } = useWishlist();
 
-  const wished = isInWishlist(product.id);
+  const productId =
+    typeof product.id === "string" ? Number(product.id) : product.id;
+
+  const wished = isInWishlist(productId);
 
   return (
     <button
       onClick={() =>
         addToWishlist({
-          id: product.id,
+          id: productId,
           name: product.title,
           price: product.price,
           image: product.images[0],

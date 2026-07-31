@@ -4,7 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { useCart } from "@/app/context/CartContext";
-import type { Product } from "@/app/data/products";
+import { products } from "@/app/data/products";
+
+type Product = typeof products[number];
 
 type Props = {
   product: Product;
@@ -43,10 +45,10 @@ export default function AddToCartButton({
     setShowSizeError(false);
 
     addToCart({
-      id: product.id,
+      id: String(product.id),
       name: product.title,
       price,
-      image: product.image,
+      image: product.images[0],
       size,
     });
 

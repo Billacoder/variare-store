@@ -2,10 +2,17 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import type { Product } from "@/app/data/products";
+
+type Review = {
+	id: string | number;
+	name: string;
+	date: string;
+	rating: number;
+	comment: string;
+};
 
 type Props = {
-	reviews: Product["reviews"];
+	reviews: Review[];
 	rating: number;
 	reviewCount: number;
 };
@@ -47,7 +54,7 @@ export default function ProductReviews({
 
 			<div
 				className={`overflow-hidden transition-all duration-300 ${
-					open ? "mt-8 max-h-[1200px]" : "max-h-0"
+					open ? "mt-8 max-h-300" : "max-h-0"
 				}`}
 			>
 				<div className="space-y-6">
